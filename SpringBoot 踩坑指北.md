@@ -50,10 +50,10 @@
   <mirrorOf>alimaven_demo</mirrorOf>
   </mirror>
      <mirror>
-         <id>fh-njrd-local</id>
+         <id>yourself</id>
          <mirrorOf>fh-all</mirrorOf>
-         <name>fiberhome njrd local repo </name>
-         <url>https://nexus3.fh-njrd.top/repository/maven-public/</url>
+         <name>yourself</name>
+         <url>yourself</url>
      </mirror>
      
  
