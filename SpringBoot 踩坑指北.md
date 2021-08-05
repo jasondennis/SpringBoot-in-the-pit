@@ -12,7 +12,7 @@
 
 
 
-##### 找不到加载的主类问题（包括在configuration里面无法选中Spring Boot 的启动类)
+##### 找不到加载的主类这种奇怪的问题（包括在configuration里面无法选中Spring Boot 的启动类)
 
 ###### 解决办法：重启大法好
 
