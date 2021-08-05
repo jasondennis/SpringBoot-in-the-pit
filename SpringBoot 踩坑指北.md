@@ -2,13 +2,21 @@
 
 ###  
 
-### Spring Boot的各种不知道哪里来的错误的记录
+### Spring Boot学习过程中各种不知道哪里来的错误的记录
+
+
+
+##### Could not transfer artifact com.fiberhome.microserv:iotbusi:pom:0.2.0 from/to fh-njrd-local 日常拉不下来jar包的一些问题
+
+###### 实测问题在于两个地方，其一：Proxifier 在Mac后台生成了用于数据过滤的虚拟网卡，桌面上关闭Proxifier时，虚拟网卡仍然在将流量发送忘错误的地方，本地Maven无法收到私服的回应。其二（关键）：私服证书已经过期，Maven对其不认可，需要在IDEA中进行配置，忽略证书问题。
 
 
 
 ##### 找不到加载的主类问题（包括在configuration里面无法选中Spring Boot 的启动类)
 
 ###### 解决办法：重启大法好
+
+
 
 ##### java: 程序包org.springframework.boot不存在
 
@@ -112,3 +120,8 @@
 ##### > tips: IDEA 在运行Spring Boot的时候最好将运行交给Maven来进行，自己容易再次出现包不存在的情况（如下）：
 
 ![截屏2021-08-05 下午5.09.13](https://github.com/jasondennis/SpringBoot-in-the-pit/blob/master/source/截屏2021-08-05%20下午5.09.13.png)
+
+
+
+#### Conclusion:当你遇到问题又不知道到底怎么办的时候，重启一下，总是当下最好的解决问题的办法。
+
