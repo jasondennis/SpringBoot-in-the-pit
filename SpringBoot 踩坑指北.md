@@ -123,5 +123,11 @@
 
 
 
+#### Mac 的Maven配置相关问题
+
+##### Mac现在更新了终端，bash 不再成为一个选项。当前MacOS使用的是 zsh 终端，默认的配置文件已经不是`.bash_profile` 。因此，导致了一种问题：每次重启电脑，甚至仅仅重启终端后，在终端中调用Maven的mvn命令就会报错`Commond not found` 。
+
+##### 解决方法：`vim ~/.zshrc`   此文件是zsh终端的默认配置文件。在`.zshrc` 结尾添加 `source ~/.bash_profile`  。 Problem solved.
+
 #### Conclusion:当你遇到问题又不知道到底怎么办的时候，重启一下，总是当下最好的解决问题的办法。
 
