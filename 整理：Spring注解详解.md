@@ -67,7 +67,9 @@
 
   **进阶**：
 
-  1. 在控制器类的级别和/或其中的方法的级别上使用，下为同时在类和方法上应用了 @RequestMapping 注解的示例：
+  1. **在控制器类的级别和/或其中的方法的级别上使用**
+
+     下为同时在类和方法上应用了 @RequestMapping 注解的示例：
 
      ```java
      @RestController
@@ -90,7 +92,7 @@
 
      如上图所示：`http://yourip:port/home`的请求会由 get() 方法来处理，而到 `http://yourip:port/home/index` 的请求会由 index() 来处理。
 
-  2.  `@RequestMapping `来处理多个 URI
+  2. `@RequestMapping `**来处理多个 URI**
 
      `@RequestMapping`允许将多个请求映射到一个方法上去，只需要添加一个带有请求路径值列表即可，如下：
 
@@ -113,11 +115,62 @@
 
      上述代码使得：
 
-     
+     `http://yourip:port/home`
+
+     `http://yourip:port/home/page`
+
+     `http://yourip:port/home/pagebibabo`
+
+     `http://yourip:port/home/view`
+
+     `http://yourip:port/home/view/bibabo`
+
+     均将路由至`indexMultipleMapping()`处理Web请求。
 
      
 
-  3. ​                    
+  3. Question：@RequestParam 和 @RequestMapping结合使用，与@GetMapping有什么区别呢？？？？
 
-  ​            
+     **实测：**
 
+     使用`@RequestMapping `与`@RequestParam`的代码块
+
+     ```java
+     @RequestMapping("/selectOne")
+     public Student selectOne(@RequestParam("id") Integer id){
+         return this.studentService.queryById(id);
+     }
+     ```
+
+     与如下使用`@GetMapping` 的代码块具有一致的功能
+
+     ```java
+     @GetMapping("selectOne")
+     public Student selectOne(Integer id){
+         return this.studentService.queryById(id);
+     }
+     ```
+
+     获得的效果为，同样的url：`http://localhost:8014/student/selectOne?id=2`可以同样的对接这两个接口。
+
+     **个人理解：**
+
+     `@RequestMapping` 可以视为@PostMapping、@PatchMapping、@PutMapping和@DeleteMapping
+
+
+
++ **@GetMapping**
+
+  ---
+
+  `@GetMapping`  注释用于将GET类型的请求映射到相应`GetMapping`注释的特定处理方法。
+
+  效果相同于：`@RequestMapping(method=RequestMethod.Get)`。
+
+  `@GetMapping`
+
+  
+
+  
+
+  
