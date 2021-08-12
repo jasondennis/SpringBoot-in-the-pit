@@ -21,7 +21,7 @@
 
   **解释**：`@Componet` 的参数 `value` 默认为 `""`, value参数指定了该类在 Spring 容器中的id, 在不传入此参数值时，则这个类在Spring 容器中的id为默认id(默认id为类名的首字母小写，`e.g:  Student -> student, BiBaBo -> biBaBo`)。
 
- 
+     
 
 + **@Repository**
 
@@ -31,7 +31,7 @@
 
   `@Repository` 能将所标注的类中抛出的数据访问异常封装为Spring 的数据访问异常类型，理解上是`@Component`的一种延伸。
 
- 
+   
 
 + **@Service**
 
@@ -41,7 +41,7 @@
 
   `@Service` 参数 Value 的使用方法和原理与 `@Component`一致。
 
- 
+​    
 
 + **@Controller**
 
@@ -55,7 +55,7 @@
 
   `@Controller`只是定义了一个控制器类，而使用`@RequestMapping` 注解的方法才是真正处理请求的处理器。
 
-  
+​     
 
 + **@RequestMapping**
 
@@ -157,7 +157,7 @@
 
      `@RequestMapping` 可以视为@PostMapping、@PatchMapping、@PutMapping和@DeleteMapping
 
-  
+        
 
 + **@GetMapping**
 
