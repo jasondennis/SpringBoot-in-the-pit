@@ -1,4 +1,4 @@
-## 整理：Spring注解详解
+## 整理：Spring基础注解详解
 
 + **@Component**
 
@@ -155,9 +155,9 @@
 
      **个人理解：**
 
-     `@RequestMapping` 可以视为@PostMapping、@PatchMapping、@PutMapping和@DeleteMapping
+     `@RequestMapping` 可以视为`@PostMapping`、`@PatchMapping`、`@PutMapping`和`@DeleteMapping` 的父接口。
 
-        
+     ​    
 
 + **@GetMapping**
 
@@ -167,10 +167,63 @@
 
   效果相同于：`@RequestMapping(method=RequestMethod.Get)`。
 
-  `@GetMapping` 是 `@RequestMapping` 的一种简化，可以理解为`@GetMapping `继承了`@RequestMapping` 
+  e.g：
+
+  ```java
+   @GetMapping("updateOne")
+      public Student updateOne(Student student){
+          return this.studentService.update(student);
+      }
+  ```
 
   
 
+  `@GetMapping` 是 `@RequestMapping` 的一种简化，可以理解为`@GetMapping `继承了`@RequestMapping`。继承了`@RequestMapping` 的相应功能。
+
+  ​    
+
++ **@PostMapping**
+
+  ---
+
+  用于将POST类型的HTTP请求映射到特定处理方法的注释。
+
+  效果等同于`@RequestMapping(method = RequestMethod.POST)`。
+
+  ​    
+
++ **@Autowired**
+
+  ---
+
+  自动装配：自动的将依赖动态注入到需要的方法中去，这个过程是由 `Spring` 自动完成的，将从容器中自动获取bean。
+
+  `@Autowired`注解用来指导 `Spring` ,我们打算在使用注解的位置注入一个依赖对象。
+
+  `@Autowired`主要通过两种方式注入：构造函数注入与setter注入，通常我们尽可能的使用构造函数注入。
+
+   例如，在 `Car` 构造函数中，我们期望注入一个 `Engine` 对象，因此，我们给 `Car` 构造函数添加`@Autowired`注解。
+
+  ```java
+  @Component
+  public class Car {
+    private Engine engine;
+    @Autowired//此处为构造函数注入，这意味着在Spring构建Car时，会将一个Engine对象注入
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+    public void start() {
+        engine.turnOn();
+    }
+  }
+  ```
+
+  `@Autowired` 有一个参数：required，默认为true。这个参数意味着必须要有依赖对象的存在。如果要允许null，可以设置required属性为false。
+
   
+
++ **@Resource** 
+
+  ---
 
   
